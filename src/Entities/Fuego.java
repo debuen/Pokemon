@@ -11,6 +11,9 @@ public class Fuego extends Pokemon implements Capturable{
     private String efectivo = "planta";
     private String debil = "agua";
 
+    public Fuego() {
+    }
+    
     public Fuego(String tipo, String efectivo, String debil, String nombre, int ataque, int defensa, int salud) {
         super(nombre, ataque, defensa, salud);
         this.tipo = tipo;
