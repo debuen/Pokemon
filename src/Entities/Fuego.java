@@ -7,9 +7,9 @@ package Entities;
  */
 public class Fuego extends Pokemon implements Capturable{
     
-    private String tipo = "fuego";
-    private String efectivo = "planta";
-    private String debil = "agua";
+    private String tipo;
+    private String efectivo;
+    private String debil;
 
     public Fuego() {
     }

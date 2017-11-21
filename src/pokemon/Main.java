@@ -12,9 +12,6 @@ package pokemon;
 public class Main {
 
     public static PokemonList pokemons;
-    public static PokemonList pFuego;
-    public static PokemonList pAgua;
-    public static PokemonList pPlanta;
     
     public static void main(String[] args) {
         

@@ -5,6 +5,9 @@
  */
 package pokemon;
 
+import Entities.Agua;
+import Entities.Fuego;
+import Entities.Planta;
 import Entities.Pokemon;
 import javax.swing.JOptionPane;
 import java.util.HashMap;
@@ -14,19 +17,9 @@ import java.util.HashMap;
  * @author DAW
  */
 public class AltaPokemon extends javax.swing.JDialog {
-
-    private Pokemon pokemon;
-    
-    public Pokemon getPokemon() {
-        return pokemon;
-    }
-    public void setP(Pokemon pokemon) {
-        this.pokemon = pokemon;
-    }
     
     public AltaPokemon(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        pokemon = new Pokemon();
         initComponents();
     }
 
@@ -38,7 +31,6 @@ public class AltaPokemon extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
@@ -66,9 +58,6 @@ public class AltaPokemon extends javax.swing.JDialog {
 
         jLabel1.setText("Nombre");
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pokemon.nombre}"), jTextField1, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -76,9 +65,6 @@ public class AltaPokemon extends javax.swing.JDialog {
         });
 
         jLabel2.setText("Ataque");
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pokemon.ataque}"), jTextField2, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,15 +76,21 @@ public class AltaPokemon extends javax.swing.JDialog {
 
         jLabel4.setText("Defensa");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pokemon.defensa}"), jTextField3, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("puntos");
 
         jLabel6.setText("Salud");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pokemon.salud}"), jTextField4, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("puntos");
 
@@ -239,8 +231,6 @@ public class AltaPokemon extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -258,23 +248,28 @@ public class AltaPokemon extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        if(pokemon.getNombre().isEmpty() || jComboBox1.getSelectedItem().toString().equalsIgnoreCase("--")){
+        if(jTextField1.getText().isEmpty() || jComboBox1.getSelectedItem().toString().equalsIgnoreCase("--")){
             JOptionPane.showMessageDialog(this, "Campo vacio", "", JOptionPane.ERROR_MESSAGE);
-        }else if(pokemon.getAtaque() <= 0 || pokemon.getAtaque() > 50 || pokemon.getDefensa() <= 0 || pokemon.getDefensa() > 50){
+        }else if(Integer.parseInt(jTextField2.getText()) <= 0 || Integer.parseInt(jTextField2.getText()) > 50 || Integer.parseInt(jTextField3.getText()) <= 0 || Integer.parseInt(jTextField3.getText()) > 50){
             JOptionPane.showMessageDialog(this, "Valor entre 0-50", "", JOptionPane.ERROR_MESSAGE);
-        }else if(pokemon.getSalud() <= 20 || pokemon.getSalud() > 100){
+        }else if(Integer.parseInt(jTextField4.getText()) < 20 || Integer.parseInt(jTextField4.getText()) > 100){
             JOptionPane.showMessageDialog(this, "Valor entre 20-100", "ERROR", JOptionPane.ERROR_MESSAGE);
         }else{
-            Main.pokemons.pokemons.put(pokemon.getNombre(), pokemon);
-            if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Fuego")){ 
-               Main.pFuego.pFuego.put(pokemon.getNombre(), pokemon);
-               JOptionPane.showMessageDialog(this, "Pokemon Fuego registrado"); 
-            }else if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Planta")){
+            
+            if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("fuego")){ 
+                Fuego pFuego = new Fuego("fuego", "planta", "agua", jTextField1.getText(), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
+                Main.pokemons.pokemons.put(jTextField1.getText(), pFuego);
+                JOptionPane.showMessageDialog(this, "Pokemon Fuego registrado"); 
+            }else if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("planta")){
+                Planta pPlanta = new Planta("planta", "agua", "fuego", jTextField1.getText(), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
+                Main.pokemons.pokemons.put(jTextField1.getText(), pPlanta);
                 JOptionPane.showMessageDialog(this, "Pokemon Planta registrado");
-            }else if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("Agua")){
+            }else if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("agua")){
+                Agua pAgua = new Agua("agua", "fuego", "planta", jTextField1.getText(), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
+                Main.pokemons.pokemons.put(jTextField1.getText(), pAgua);
                 JOptionPane.showMessageDialog(this, "Pokemon Agua registrado");
+                
             }
-                        
             dispose();
         }
         
@@ -284,6 +279,14 @@ public class AltaPokemon extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,6 +313,5 @@ public class AltaPokemon extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
