@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DAW
@@ -133,7 +135,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+        JOptionPane.showMessageDialog(this,"Hay un total de " + Main.pokemons.pokemons.size() + " pokemons. Tipo Fuego: " + Main.pokemons.pokemons + " / Tipo Agua: " + " / Tipo Planta: " + Main.pokemons.pokemons, "", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

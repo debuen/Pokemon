@@ -122,18 +122,7 @@ public class Modificar extends javax.swing.JDialog {
             ventana.setLocationRelativeTo(null);
             ventana.setVisible(true);
             dispose();
-            
-            //            Pokemon pokemon = Boutique.prendas.prendaCodigo(codigo);
-            //            String stockStr = JOptionPane.showInputDialog(this, "Tu stock es de " + prenda.getStock() + ". Introduce una cantidad", "", JOptionPane.PLAIN_MESSAGE);
-            //
-            //            int stock = Integer.parseInt(stockStr);
-            //            if(stock < 0 || prenda.getStock() < stock) {
-                //                JOptionPane.showMessageDialog(this, "Valor incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
-                //            }else {
-                //                prenda.setStock(prenda.getStock() - stock);
-                //                JOptionPane.showMessageDialog(this,"El stock actual de " + prenda.getCodigo() + " es de " + prenda.getStock() + " unidades", "", JOptionPane.INFORMATION_MESSAGE);
-                //                dispose();
-                //            }
+   
         }else{
             JOptionPane.showMessageDialog(this, "Valor incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
