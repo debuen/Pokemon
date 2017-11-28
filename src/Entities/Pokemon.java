@@ -5,7 +5,7 @@ package Entities;
  *
  * @author DAW
  */
-public class Pokemon {
+public abstract class Pokemon implements Capturable{
  
     private String nombre;
     private int ataque;

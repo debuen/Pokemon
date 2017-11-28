@@ -5,7 +5,7 @@ package Entities;
  *
  * @author DAW
  */
-public class Planta extends Pokemon implements Capturable{
+public class Planta extends Pokemon{
     
     private String tipo = "planta";
     private String efectivo;
