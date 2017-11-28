@@ -135,7 +135,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        JOptionPane.showMessageDialog(this,"Hay un total de " + Main.pokemons.pokemons.size() + " pokemons. Tipo Fuego: " + Main.pokemons.pokemons + " / Tipo Agua: " + " / Tipo Planta: " + Main.pokemons.pokemons, "", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Hay un total de " + Main.pokemons.pokemons.size() + " pokemons. Tipo Fuego: " + Main.pokemons.pFuego() + " / Tipo Agua: " + Main.pokemons.pAgua() + " / Tipo Planta: " + Main.pokemons.pPlanta(), "", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -146,7 +146,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+        VerPokemon ventana2 = new VerPokemon(this, true);
+        ventana2.setLocationRelativeTo(null);
+        ventana2.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
