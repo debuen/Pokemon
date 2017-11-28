@@ -47,7 +47,12 @@ public class Fuego extends Pokemon{
 
     @Override
     public boolean capturado() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        int random = (int) (Math.random()*(60 - 10) + 1) + 10;
+         if ((random + getAtaque()) > (getDefensa()+getAtaque())) {
+            return true;
+        } else {
+            return false;
+        } 
     }
     
     

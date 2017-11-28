@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_144" class="java.beans.XMLDecoder">
+ <object class="pokemon.PokemonList" id="PokemonList0">
+  <void property="pokemons">
+   <void method="put">
+    <string>Ponyta</string>
+    <object class="Entities.Fuego">
+     <void property="ataque">
+      <int>30</int>
+     </void>
+     <void property="debil">
+      <string>agua</string>
+     </void>
+     <void property="defensa">
+      <int>25</int>
+     </void>
+     <void property="efectivo">
+      <string>planta</string>
+     </void>
+     <void property="nombre">
+      <string>Ponyta</string>
+     </void>
+     <void property="salud">
+      <int>20</int>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <string>Charmander</string>
+    <object class="Entities.Fuego">
+     <void property="ataque">
+      <int>20</int>
+     </void>
+     <void property="debil">
+      <string>agua</string>
+     </void>
+     <void property="defensa">
+      <int>40</int>
+     </void>
+     <void property="efectivo">
+      <string>planta</string>
+     </void>
+     <void property="nombre">
+      <string>Charmander</string>
+     </void>
+     <void property="salud">
+      <int>50</int>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <string>Magmar</string>
+    <object class="Entities.Fuego">
+     <void property="ataque">
+      <int>30</int>
+     </void>
+     <void property="debil">
+      <string>agua</string>
+     </void>
+     <void property="defensa">
+      <int>40</int>
+     </void>
+     <void property="efectivo">
+      <string>planta</string>
+     </void>
+     <void property="nombre">
+      <string>Magmar</string>
+     </void>
+     <void property="salud">
+      <int>20</int>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

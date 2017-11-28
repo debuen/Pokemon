@@ -8,23 +8,21 @@ package pokemon;
 import Entities.Pokemon;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import static pokemon.Main.pokemons;
 
 /**
  *
- * @author DAW
+ * @author Marc
  */
-public class Modificar extends javax.swing.JDialog {
+public class Capturar extends javax.swing.JDialog {
 
     private ArrayList<String> nombres;
     public ArrayList<String> getNombres() {
         return nombres;
     }
     
-    
-    public Modificar(java.awt.Frame parent, boolean modal) {
+    public Capturar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         nombres = pokemons.nombres();
         nombres.add("--");
@@ -62,9 +60,8 @@ public class Modificar extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("MODIFICAR");
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setText("CAPTURAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -110,25 +107,25 @@ public class Modificar extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String pokemonNombre = (String) jComboBox1.getSelectedItem();
         if ((!pokemonNombre.isEmpty() || jComboBox1.getSelectedItem()!="--")) {
 
             Pokemon pokemon = Main.pokemons.pokemonNombre(pokemonNombre);
+            if(pokemon.capturado() == true){
+                JOptionPane.showMessageDialog(this,"POKEMON CAPTURADO", "", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,"POKEMON NO CAPTURADO", "", JOptionPane.INFORMATION_MESSAGE);
+            }
             
-            DatosPokemon ventana = new DatosPokemon(null, true, pokemon);
-            ventana.setLocationRelativeTo(null);
-            ventana.setVisible(true);
-            dispose();
-   
         }else{
-            JOptionPane.showMessageDialog(this, "Valor incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Selecciona un pokemon", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

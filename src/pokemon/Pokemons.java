@@ -25,20 +25,31 @@ public class Pokemons extends javax.swing.JDialog {
         initComponents();
         jButton1.setVisible(false);
         if(pokemonList.size() == 0){
-            JOptionPane.showMessageDialog(this, "ERROR", "No hay pokemons", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay pokemons", "ERROR", JOptionPane.ERROR_MESSAGE);
             dispose();
         }else{
             if(pokemonList.size() == 1){
-               jButton2.setVisible(false); 
-            }
-            
-            for(int i=0;i<pokemonList.size();i++){
+               jButton2.setVisible(false);
+               for(int i=0;i<pokemonList.size();i++){
                 Pokemon p = pokemonList.get(0);  
                 jLabel5.setText(pokemonList.get(0).getNombre());
                 jLabel6.setText(Integer.toString(p.getAtaque()));
                 jLabel7.setText(Integer.toString(p.getDefensa()));
                 jLabel8.setText(Integer.toString(p.getSalud()));
+                }
+            }else if(pokemonList.size() != 0){
+                for(int i=0;i<pokemonList.size();i++){
+                Pokemon p = pokemonList.get(0);  
+                jLabel5.setText(pokemonList.get(0).getNombre());
+                jLabel6.setText(Integer.toString(p.getAtaque()));
+                jLabel7.setText(Integer.toString(p.getDefensa()));
+                jLabel8.setText(Integer.toString(p.getSalud()));
+                }
+            }else{
+                dispose();
             }
+            
+            
         }
     }
 
@@ -174,7 +185,20 @@ public class Pokemons extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        contador--;
+        if(contador == 0){
+            jButton1.setVisible(false);
+            jButton2.setVisible(true);
+        }else{
+            jButton1.setVisible(true);
+        }
+        if (contador >= 0) {
+            Pokemon p = pokemonList.get(contador);
+            jLabel5.setText(p.getNombre());
+            jLabel6.setText(Integer.toString(p.getAtaque()));
+            jLabel7.setText(Integer.toString(p.getDefensa()));
+            jLabel8.setText(Integer.toString(p.getSalud()));  
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

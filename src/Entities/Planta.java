@@ -44,7 +44,12 @@ public class Planta extends Pokemon{
     
     @Override
     public boolean capturado() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        int random = (int) (Math.random()*(50 - 0) + 1) + 0;
+         if ((random + getAtaque()) > getSalud()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }

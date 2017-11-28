@@ -44,7 +44,12 @@ public class Agua extends Pokemon{
     
     @Override
     public boolean capturado() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        int random = (int) (Math.random()*(120 - 20) + 1) + 20;
+         if ((random - getSalud()) > getDefensa()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }

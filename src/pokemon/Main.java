@@ -5,6 +5,8 @@
  */
 package pokemon;
 
+import ocutilidades.Fichero;
+
 /**
  *
  * @author DAW
@@ -12,9 +14,13 @@ package pokemon;
 public class Main {
 
     public static PokemonList pokemons;
+    public static Fichero miFichero;
     
     public static void main(String[] args) {
         
+        miFichero = new Fichero("pokemon.xml");
+        pokemons = (PokemonList) miFichero.leer();
+       
         if (pokemons == null) {
             pokemons = new PokemonList();
         }

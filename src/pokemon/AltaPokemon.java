@@ -259,10 +259,12 @@ public class AltaPokemon extends javax.swing.JDialog {
             if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("fuego")){ 
                 Fuego pFuego = new Fuego("fuego", "planta", "agua", jTextField1.getText(), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
                 Main.pokemons.pokemons.put(jTextField1.getText(), pFuego);
+                Main.miFichero.grabar(Main.pokemons);
                 JOptionPane.showMessageDialog(this, "Pokemon Fuego registrado"); 
             }else if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("planta")){
                 Planta pPlanta = new Planta("planta", "agua", "fuego", jTextField1.getText(), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));
                 Main.pokemons.pokemons.put(jTextField1.getText(), pPlanta);
+                Main.miFichero.grabar(Main.pokemons);
                 JOptionPane.showMessageDialog(this, "Pokemon Planta registrado");
             }else if(jComboBox1.getSelectedItem().toString().equalsIgnoreCase("agua")){
                 Agua pAgua = new Agua("agua", "fuego", "planta", jTextField1.getText(), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField4.getText()));

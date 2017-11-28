@@ -24,6 +24,7 @@ public class DatosPokemon extends javax.swing.JDialog {
         jTextField1.setText(Integer.toString(p.getAtaque()));
         jTextField2.setText(Integer.toString(p.getDefensa()));
         jTextField3.setText(Integer.toString(p.getSalud()));
+        
     }
 
 
@@ -204,6 +205,8 @@ public class DatosPokemon extends javax.swing.JDialog {
             p.setAtaque(Integer.parseInt(jTextField1.getText()));
             p.setDefensa(Integer.parseInt(jTextField2.getText()));
             p.setSalud(Integer.parseInt(jTextField3.getText()));
+            Main.miFichero.grabar(Main.pokemons);
+            
             JOptionPane.showMessageDialog(this, "Pokemon " + p.getNombre() + " modificado");
             
         }
